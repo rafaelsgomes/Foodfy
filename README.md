@@ -24,6 +24,20 @@ Durante a construção do projeto foram colocados em prática os conhecimentos a
 
 ---
 
+## :rocket: Sobre o desafio (back-end)
+
+A construção do Back-end desta aplicação me apresentou novos conceitos e desafios no desenvolvimento Web. Algumas tecnicas que foram utlizadas:
+
+  - Criação do servidor com [Node.js](https://nodejs.org/en/) e [Express](https://expressjs.com/)
+  - Rotas da aplicação
+  - Template Engine ([Nunjucks](https://mozilla.github.io/nunjucks/)) para:
+    - Reaproveitamento de código
+    - Dados dinâmicos
+    - Dados do Back-end
+  - Redirecionamento da URL com JS
+
+---
+
 ## :memo: Licença
 
 Esse repositório está licenciado pela **MIT LICENSE**. Para mais informações detalhadas, leia o arquivo [LICENSE](./LICENSE) contido nesse repositório.

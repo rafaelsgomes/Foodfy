@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <!-- Destaque -->
+    <div class="banner">
+        <div class="banner-info">
+            <h1>As melhores Receitas</h1>
+            <p>Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.</p>
+        </div>
+        <img src="/assets/chef.png" alt="">
+    </div>
+
+    <!-- Mais Acessadas -->
+    <div class="recipes">
+        <h1>Mais acessadas</h1>
+        <div class="cards">
+        {% for recipe in recipes %}
+                <div class="card">
+                <img src="{{recipe.image}}" alt="Foto do prato" class="card-image">
+                <div class="recipe-info">
+                    <h2 class="recipe-title">{{recipe.title}}</h2>
+                    <h5 class="recipe-author">{{recipe.author}}</h5>
+                </div>
+            </div>
+        {% endfor %}  
+        </div>
+    </div>    
+</div>
+
+{% block modal %}{% include "modal.njk" %}{% endblock %}
+{% block js %}
+        <script src="/JS/modal.js"></script>
+{% endblock %}
+{% endblock %}

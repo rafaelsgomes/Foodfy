@@ -199,13 +199,23 @@ header {
 }
 
 .modal .modal-info{
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
-.modal .close-modal{
+.modal a{
     font-size: 16px;
     color: #999999;
     cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.modal .view-recipes{
+    display: block;
+    
+}
+
+.modal .view-recipes:hover{
+    color: #6e6e6e;
 }
 
 .modal-overlay.active{
