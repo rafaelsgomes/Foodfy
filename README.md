@@ -38,6 +38,43 @@ A construção do Back-end desta aplicação me apresentou novos conceitos e des
 
 ---
 
+## :rocket: Sobre o desafio (Admin Foodfy)
+
+A construção da área de admin da aplicação me possibilitou colocar mais uma vez em prática os conhecimentos que possuo no desenvolvimento web.
+
+  - Reorganização das rotas da aplicação
+  - Utilização do:
+    - [method-override](https://github.com/expressjs/method-override)
+    - [browser-sync](https://github.com/Browsersync/browser-sync)
+    - [npm-run-all](https://github.com/mysticatea/npm-run-all)
+
+---
+
+### :computer: Como utilizar
+
+ #### Clone ou faça o download desse repositório:
+
+```bash
+$ git clone https://github.com/rafaelsgomes/Foodfy.git
+```
+
+ #### Acesse o diretório raiz e faça a instalação:
+
+```bash
+#Instale as dependencias
+$ npm install
+```
+    
+ #### Para iniciar o projeto:
+ 
+ 
+```bash
+#Com npm
+$ npm start
+```
+
+--- 
+
 ## :memo: Licença
 
 Esse repositório está licenciado pela **MIT LICENSE**. Para mais informações detalhadas, leia o arquivo [LICENSE](./LICENSE) contido nesse repositório.

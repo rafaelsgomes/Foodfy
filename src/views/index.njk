@@ -27,8 +27,10 @@
     </div>    
 </div>
 
-{% block modal %}{% include "modal.njk" %}{% endblock %}
+{% endblock %}
+{% block extend %}
+    {% include "modal.njk" %}
+{% endblock %}
 {% block js %}
         <script src="/JS/modal.js"></script>
-{% endblock %}
 {% endblock %}

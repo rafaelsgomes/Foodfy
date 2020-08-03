@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Foodfy - Gerenciar Receitas</title>
+{% endblock %}
+
+{% block content %}
+    <!-- Receitas -->
+    <div class="recipes">
+        <div class="admin-header">
+            <h1 style='margin-bottom: 30px' >Gerenciar Receitas</h1>
+            <a href="/admin/recipes/create">Cadastrar nova receita</a>
+        </div>
+        <div class="cards-admin">
+            {% for recipe in recipes %}
+                <div class="card-admin">
+                    <img src="{{recipe.image}}" alt="Foto do prato" class="card-admin-image">
+                    <div class="recipe-info">
+                        <h2 class='recipe-title'>{{recipe.title}}</h2>
+                        <h5 class="recipe-author">{{recipe.author}}</h5>
+                        <a class="view-recipe">Vizualizar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
