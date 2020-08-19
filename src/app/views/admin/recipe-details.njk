@@ -1,10 +1,10 @@
-{% extends "layout.njk" %}
+{% extends "layout-admin.njk" %}
 
 {% block content %}
     <div class="recipe">
         <div class='admin-header'>
              <h2>Receita: {{recipe.title}}</h2>
-            <a href="/admin/recipes/{{recipe.id}}/edit">Editar Receita</a>
+            <a href="/admin/recipe/{{recipe.id}}/edit">Editar Receita</a>
         </div>
         <img src="{{recipe.image}}" alt="Foto do prato" class="card-image" style='background:  no-repeat center center / cover'>
         <h2 class='recipe-title'>{{recipe.title}}</h2>

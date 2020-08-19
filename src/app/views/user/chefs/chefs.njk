@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Foodfy - Chefs</title>
+{% endblock %}
+
+{% block search %}
+<div class="search">
+    <form action="/chefs/results">
+        <input type="text" name="search" placeholder="Buscar um chef">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+{% endblock %} 
+
+{% block content %}
+    <!-- Chefs -->
+<div class="chefs">
+    <div class="cards-chefs">
+       {% for chef in chefs %}
+        <div class="card-chef">
+            <img src="{{chef.avatar_url}}" alt="Foto do Chef" class="chef-image">
+             <div class="chef-info">
+                <h2 class='chef-name'>{{chef.name}}</h2>
+                <h5 class="chef-recipes">{{chef.recipes}} receitas</h5>
+                <a class="view-chef">Vizualizar</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

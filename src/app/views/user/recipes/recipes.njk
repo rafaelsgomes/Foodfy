@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Foodfy - Receitas</title>
+{% endblock %}
+
+{% block search %}
+    {% include "user/recipes/search-form.njk" %}
+{% endblock %}
+
+{% block content %}
+    <!-- Receitas -->
+    <div class="recipes">
+        <h1>Nossas receitas</h1>
+        <div class="cards">
+       {% for recipe in recipes %}
+                <div class="card">
+                <img src="{{recipe.image}}" alt="Foto do prato" class="card-image">
+                <div class="recipe-info">
+                    <h2 class='recipe-title'>{{recipe.title}}</h2>
+                    <h5 class="recipe-author">{{recipe.author}}</h5>
+                </div>
+            </div>
+        {% endfor %} 
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block extend %}
+    {% include "modal.njk" %}
+{% endblock %}
+{% block js %}
+        <script src="/JS/modal.js"></script>
+{% endblock %}

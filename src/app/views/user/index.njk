@@ -1,5 +1,9 @@
 {% extends "layout.njk" %}
 
+{% block search %}
+    {% include "user/recipes/search-form.njk" %}
+{% endblock %}
+
 {% block content %}
     <!-- Destaque -->
     <div class="banner">

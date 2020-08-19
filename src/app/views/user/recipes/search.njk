@@ -4,10 +4,14 @@
     <title>Foodfy - Receitas</title>
 {% endblock %}
 
+{% block search %}
+    {% include "user/recipes/search-form.njk" %}
+{% endblock %}
+
 {% block content %}
     <!-- Receitas -->
     <div class="recipes">
-        <h1>Nossas receitas</h1>
+        <h1>Buscando por {{search}}</h1>
         <div class="cards">
        {% for recipe in recipes %}
                 <div class="card">

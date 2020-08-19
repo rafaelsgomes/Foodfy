@@ -1,0 +1,15 @@
+{% extends "layout-admin.njk" %}
+
+{% block content %}
+    <div class="chef">
+        <div class='admin-header'>
+             <h2>Chef: Júlia Kinoto</h2>
+            <a href="/admin/chef/{{chef.id}}/edit">Editar Chef</a>
+        </div>
+        <div class="chefs-info">
+            <img src="{{chef.avatar_url}}" alt="Foto do prato" class="avatar" style='background:  no-repeat center center / cover'>
+            <h2 class='chef-name'>Júlia Kinoto</h2>
+            <h5 class="chef-recipes-total">4 receitas</h5>
+        </div>
+    </div>
+{% endblock %}

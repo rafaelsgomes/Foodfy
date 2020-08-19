@@ -1,4 +1,4 @@
-{% extends "layout.njk" %}
+{% extends "layout-admin.njk" %}
 
 {% block content %}
     <div class="recipe">
@@ -9,11 +9,11 @@
                 <button form='form-edit' type="submit">Salvar Receita</button>
              </div>
         </div>
-        <form id='form-edit' action="/admin/recipes?_method=PUT" method="post">
+        <form id='form-edit' action="/admin/recipe?_method=PUT" method="post">
             {%include 'admin/form.njk'%}
             <input type="hidden" name="id" value='{{recipe.id}}'>
         </form>
-        <form id='form-delete' action="/admin/recipes?_method=DELETE" method="post">
+        <form id='form-delete' action="/admin/recipe?_method=DELETE" method="post">
             <input type="hidden" name="id" value='{{recipe.id}}'>
         </form>
     </div>

@@ -8,16 +8,6 @@ for(item of menu){
     }
 }
 
-// cards admin
-const cardsIndex = document.querySelectorAll('.view-recipe')
-    for(let i = 0; i < cardsIndex.length; i++){
-    const recipeIndex = cardsIndex[i]
-        
-    recipeIndex.addEventListener('click', ()=>{
-            window.location.href = `/admin/recipes/${i}`
-    })  
-}
-
 //Show or Hide recipe informations
 for (let i = 0; i < document.querySelectorAll('.details-header').length; i++){
 const recipeIngredients = document.querySelector('.recipe-ingredients')
@@ -37,8 +27,17 @@ recipePreparation.querySelector('.details-header').addEventListener('click', () 
 recipeInformation.querySelector('.details-header').addEventListener('click', () => showOrHide(recipeInformation) )
 }
 
-// Add Inputs
+// cards admin
+const cardsIndex = document.querySelectorAll('.view-recipe')
+    for(let i = 0; i < cardsIndex.length; i++){
+    const recipeIndex = cardsIndex[i]
+        
+    recipeIndex.addEventListener('click', ()=>{
+            window.location.href = `/admin/recipe/${i}`
+    })  
+}
 
+// Add Inputs
 function addInput(field, container){
     const fieldInput = field
     const fieldContainer = container

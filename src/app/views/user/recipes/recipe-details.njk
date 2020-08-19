@@ -4,6 +4,10 @@
     <title>Foodfy - Detalhes da receita {{recipe.title}}</title>
 {% endblock %}
 
+{% block search %}
+    {% include "user/recipes/search-form.njk" %}
+{% endblock %}
+
 {% block content %}
     <div class="recipe">
                 <img src="{{recipe.image}}" class="card-image" alt="Foto do prato">

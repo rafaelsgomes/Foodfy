@@ -1,27 +1,44 @@
 const express = require('express')
 const routes = express.Router()
-const recipes = require('./controllers/recipes')
-const admin = require('./controllers/admin')
+const recipes = require('./app/controllers/recipes')
+const chefs = require('./app/controllers/chefs')
+const search = require('./app/controllers/search')
+const adminRecipes = require('./app/controllers/adminRecipes')
+const adminChefs = require('./app/controllers/adminChefs')
 
 routes.get('/', (req, res)=>{
     return res.redirect('index')
 })
 
-//user
+//user recipes
 routes.get('/index', recipes.index)
 routes.get('/about', recipes.about)
-routes.get('/recipe', recipes.recipeslist)
+routes.get('/recipes', recipes.recipesList)
 routes.get('/recipe/:id', recipes.details)
 
-//admin
-routes.get('/admin/recipes', admin.recipeslist)
-routes.get('/admin/recipes/create', admin.create)
-routes.get('/admin/recipes/:id', admin.details)
-routes.get('/admin/recipes/:id/edit', admin.edit)
+//user chefs
+routes.get('/chefs', chefs.chefsList)
 
-routes.post('/admin/recipes', admin.post)
-routes.put('/admin/recipes', admin.put)
-routes.delete('/admin/recipes', admin.delete)
+//Search
+routes.get('/recipes/results', search.searchRecipe)
+routes.get('/chefs/results', search.searchChef)
 
+//admin recipes
+routes.get('/admin/recipes', adminRecipes.recipesList)
+routes.get('/admin/recipes/create', adminRecipes.create)
+routes.get('/admin/recipe/:id', adminRecipes.details)
+routes.get('/admin/recipe/:id/edit', adminRecipes.edit)
+routes.post('/admin/recipes', adminRecipes.post)
+routes.put('/admin/recipes', adminRecipes.put)
+routes.delete('/admin/recipe', adminRecipes.delete)
+
+// admin chefs
+routes.get('/admin/chefs', adminChefs.chefsList)
+routes.get('/admin/chefs/create', adminChefs.create)
+routes.get('/admin/chef/:id', adminChefs.details)
+routes.get('/admin/chef/:id/edit', adminChefs.edit)
+routes.post('/admin/chefs', adminChefs.post)
+routes.put('/admin/chefs', adminChefs.put)
+routes.delete('/admin/chefs', adminChefs.delete)
 
 module.exports = routes

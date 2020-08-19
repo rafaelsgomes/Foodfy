@@ -51,10 +51,7 @@ header::after{
 }
 
 .navbar a:last-child{
-    margin-left: auto;
-    background-color: #6558C3;
-    border-radius: 4px;
-    padding: 8px 16px;
+    margin: 0 0 0 auto;
 }
 .navbar a:hover{
     font-weight: bold;
@@ -105,7 +102,7 @@ header::after{
     text-align: start;
 }
 
-.recipes h1{
+.recipes h1, .chefs h1{
     color: #111111;
     font-size: 24px;
     font-weight: bold;
@@ -258,7 +255,7 @@ header::after{
     margin-bottom: 50px;
 }
 
-.recipe h2{
+.recipe h2, .chef h2{
     font-weight: 700;
     font-size: 24px;
     
@@ -326,7 +323,7 @@ header::after{
     border-radius: 8px;
 }
 
-.view-recipe {
+.view-recipe, .view-chef {
     color: #6558C3;
     font-size: 14px;
     margin-top: 10px;
@@ -366,17 +363,17 @@ header::after{
     background: #6558C3;
 }
 /* ADMIN- FORM*/
-.recipe-item{
+.recipe-item, .chef-item{
     text-align: initial;
     
 }
 
-.recipe-item h2{
+.recipe-item h2, .chef-item h2{
     font-size: 14px;
     font-weight: bold;
     color: #111;
 }
-.recipe-item input, .recipe-item textarea{
+.recipe-item input, .recipe-item textarea, .chef-item input{
     display: inline-block;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -403,4 +400,102 @@ header::after{
     font-size: 16px;
     color: #6558C3;
     margin-bottom: 30px;
+}
+
+/* Search */
+.search {
+    margin: 0 0  0 auto;
+    height: 40px;
+}
+
+.search form {
+   display: grid;
+   grid-template-columns: 1fr 80px;
+   gap: 8px;
+   height: 100%;
+   
+}
+
+.search input {
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+.search input::placeholder {
+    font-family: Robo-Regular;
+    font-size: 16px;
+    color: #999;
+}
+
+.search button {
+    color: #fff;
+    background-color: #6558C3;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/* Chefs */
+
+.chefs {
+    margin-bottom: 64px ;
+}
+
+.chefs .cards-chefs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 64px;
+}
+
+.chefs .card-chef{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.chefs .card-chef img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    justify-self: center;
+}
+
+.chefs .chef-info {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chefs .chef-name {
+    font-size: 16px;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.chefs .chef-recipes {
+    font-size: 14px;
+    color: #666;
+}
+
+.chefs-info img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 54px;
+}
+
+.chefs-info h2 {
+    margin-top: 32px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #111;
+}
+
+.chefs-info h5 {
+    margin-top: 8px;
+    font-size: 20px;
+    color: #777;
 }
