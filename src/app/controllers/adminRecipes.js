@@ -3,21 +3,24 @@ const Recipe = require('../models/Recipe')
 module.exports = {
     recipesList(req, res){
         Recipe.all((recipes)=>{
-            return res.render('admin/recipe', {recipes})
+            Recipe.showChefsName(()=>{
+                return res.render('admin/recipes/recipe', {recipes})
+            })
+            
         }) 
     },
     details(req, res){
         const {id} = req.params  
-        const recipe = {
-            ...data.recipes[id],
-            id
-        }
-        if(recipe.id > data.recipes.length || recipe.id < 0) return res.send('Recipe not found!')
-
-        return res.render('admin/recipe-details', {recipe})
+        Recipe.show(id, (recipe)=>{
+            Recipe.showChefsName(()=>{
+                return res.render('admin/recipes/recipe-details', {recipe})
+            })
+        })
     },
     create(req, res){
-        return res.render('admin/create')
+        Recipe.chefsOptions((options)=>{
+            return res.render('admin/recipes/create', {chefs: options})
+        })
     },
     post(req, res){
         const keys = Object.keys(req.body)
@@ -31,48 +34,21 @@ module.exports = {
     },
     edit(req, res){
         const {id} = req.params  
-        const recipe = {
-            ...data.recipes[id],
-            id
-        }
-        if(recipe.id > data.recipes.length || recipe.id < 0) return res.send('Recipe not found!')
-    
-        return res.render('admin/edit', {recipe})
+        Recipe.show(id, (recipe)=>{
+            Recipe.chefsOptions((options)=>{
+                return res.render('admin/recipes/edit', {recipe, chefs: options})
+            })
+        }) 
     },
     put(req, res){
-        const {id} = req.body
-
-        let {image, title, author, ingredients, preparation, information} = req.body
-        const recipe = {
-            image, 
-            title, 
-            author, 
-            ingredients, 
-            preparation, 
-            information
-        }
-        console.log(recipe)
-    
-        data.recipes[id] = recipe
-    
-        fs.writeFile('./src/data/data.json', JSON.stringify(data, null, 2), (err) => {
-            if(err) return res.send('Erro ao cadastrar receita')
-    
-            return res.redirect(`/admin/recipes/${id}`)
+        Recipe.update(req.body, ()=>{
+            return res.redirect(`/admin/recipe/${req.body.id}`)
         })  
     },
     delete(req, res){
         const {id} = req.body
-        const recipeDelete = data.recipes[id]
-        const filteredRecipes = data.recipes.filter((recipe)=>{
-            return recipe != recipeDelete    
+        Recipe.delete(id, ()=>{
+            return res.redirect('/admin/recipes')
         })
-        data.recipes = filteredRecipes
-    
-        fs.writeFile('./src/data/data.json', JSON.stringify(data, null, 2), (err) => {
-            if(err) return res.send('Erro')
-    
-            return res.redirect(`/admin/recipes`)
-        })  
     }
 }

@@ -8,7 +8,12 @@
 </div>
 <div class="recipe-item">
     <h2>Autor da receita</h2>
-    <input type="text" name="author" value='{{recipe.author}}'>
+    <select name="chef">
+        <option disabled>Selecione o Chef autor da receita</option>
+        {% for chef in chefs %}
+            <option value="{{chef.id}}" {% if recipe.chef_id == chef.id %} selected {% endif %}>{{chef.name}}</option>
+        {% endfor %}
+    </select>
 </div>
 <div class="recipe-item">
     <h2>Ingredientes</h2>
@@ -27,7 +32,6 @@
     </div>
     <button type='button' class="add-ingredient">Adicionar Ingrediente</button>
 </div>
-
 <div class="recipe-item">
     <h2>Modo de Preparo</h2>
     <div id="preparations">
@@ -43,7 +47,6 @@
             </div>
         {% endif %}
     </div>
-
     <button type='button' class='add-step'>Adicionar Novo Passo</button>
 </div>
 

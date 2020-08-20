@@ -373,7 +373,7 @@ header::after{
     font-weight: bold;
     color: #111;
 }
-.recipe-item input, .recipe-item textarea, .chef-item input{
+.recipe-item input, .recipe-item textarea, .recipe-item select, .chef-item input{
     display: inline-block;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -498,4 +498,26 @@ header::after{
     margin-top: 8px;
     font-size: 20px;
     color: #777;
+}
+
+.cards-chef-admin, .cards-chef {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.cards-chef-admin .card-chef-admin, .cards-chef .card-chef{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+    gap: 20px;
+}
+.cards-chef-admin img, .cards-chef img{
+    width: 100%;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.cards-chef-admin .recipe-info, .cards-chef .recipe-info{
+    margin: auto 0;
 }

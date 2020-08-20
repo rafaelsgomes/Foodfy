@@ -10,7 +10,7 @@
              </div>
         </div>
         <form id='form-edit' action="/admin/recipe?_method=PUT" method="post">
-            {%include 'admin/form.njk'%}
+            {%include 'admin/recipes/form.njk'%}
             <input type="hidden" name="id" value='{{recipe.id}}'>
         </form>
         <form id='form-delete' action="/admin/recipe?_method=DELETE" method="post">

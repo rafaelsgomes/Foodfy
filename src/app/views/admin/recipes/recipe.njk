@@ -17,8 +17,8 @@
                     <img src="{{recipe.image}}" alt="Foto do prato" class="card-admin-image">
                     <div class="recipe-info">
                         <h2 class='recipe-title'>{{recipe.title}}</h2>
-                        <h5 class="recipe-author">{{recipe.author}}</h5>
-                        <a class="view-recipe">Vizualizar</a>
+                        <h5 class="recipe-author">{{recipe.chef_name}}</h5>
+                        <a class="view-recipe" href="/admin/recipe/{{recipe.id}}">Vizualizar</a>
                     </div>
                 </div>
             {% endfor %}

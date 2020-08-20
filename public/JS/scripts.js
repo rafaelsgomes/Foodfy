@@ -27,15 +27,6 @@ recipePreparation.querySelector('.details-header').addEventListener('click', () 
 recipeInformation.querySelector('.details-header').addEventListener('click', () => showOrHide(recipeInformation) )
 }
 
-// cards admin
-const cardsIndex = document.querySelectorAll('.view-recipe')
-    for(let i = 0; i < cardsIndex.length; i++){
-    const recipeIndex = cardsIndex[i]
-        
-    recipeIndex.addEventListener('click', ()=>{
-            window.location.href = `/admin/recipe/${i}`
-    })  
-}
 
 // Add Inputs
 function addInput(field, container){
