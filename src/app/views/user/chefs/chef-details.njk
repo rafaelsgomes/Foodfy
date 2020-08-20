@@ -1,5 +1,14 @@
 {% extends "layout.njk" %}
 
+{% block search %}
+<div class="search">
+    <form action="/chefs/results">
+        <input type="text" name="search" placeholder="Buscar um chef">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+{% endblock %} 
+
 {% block content %}
     <div class="chef">
         <div class="chefs-info">
@@ -17,7 +26,7 @@
                 <div class="recipe-info">
                     <h2 class="recipe-title">{{recipe.title}}</h2>
                     <h5 class="recipe-author">{{chef.name}}</h5>
-                    <a class="view-recipe" href="/user/recipe/{{recipe.id}}">Vizualizar</a>
+                    <a class="view-recipe" href="/recipe/{{recipe.id}}">Vizualizar</a>
                 </div>
             </div>
         {% endfor %}  

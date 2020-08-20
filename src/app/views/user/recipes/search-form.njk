@@ -1,6 +1,6 @@
 <div class="search">
-        <form action="/recipes/results">
-            <input type="text" name="search" placeholder="Buscar uma receita">
+        <form action="/recipes/results" method="GET">
+            <input type="text" name="search" placeholder="Buscar uma receita" value={{search}}>
             <button type="submit">Buscar</button>
         </form>
 </div>
