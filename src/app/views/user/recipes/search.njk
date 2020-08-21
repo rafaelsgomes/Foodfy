@@ -26,6 +26,8 @@
     </div>
 </div>
 
+ {% block pagination %}{% include "pagination.njk" %}{% endblock %}
+
 {% endblock %}
 {% block extend %}
     {% include "modal.njk" %}

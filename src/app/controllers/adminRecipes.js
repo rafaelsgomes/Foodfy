@@ -2,12 +2,17 @@ const Recipe = require('../models/Recipe')
 
 module.exports = {
     recipesList(req, res){
-        Recipe.all((recipes)=>{
+        let {limit, page} = req.query, offset
+        limit = limit || 6
+        page = page || 1
+        offset = limit * (page - 1)
+        const params = {limit, page, offset}
+        Recipe.all(params, (recipes)=>{
             Recipe.showChefsName(()=>{
-                return res.render('admin/recipes/recipe', {recipes})
-            })
-            
-        }) 
+                const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
+                return res.render('admin/recipes/recipe', {recipes, pagination})
+            })  
+        })
     },
     details(req, res){
         const {id} = req.params  

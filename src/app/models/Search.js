@@ -1,23 +1,40 @@
 const db = require('../../config/db')
 
 module.exports = {
-    recipeFilter(search, callback){
-        let query = `SELECT recipes.*, chefs.name AS chef_name FROM recipes
-        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE recipes.title ILIKE '%${search}%'`
+    recipeFilter(params, callback){
+        let searchQuery = ``,
+            totalQuery = `(SELECT count(*) FROM recipes) AS total`
 
-        db.query(query, (err, results)=>{
+        if(params.search){
+            searchQuery = `WHERE recipes.title ILIKE '%${params.search}%'` 
+            totalQuery = `(SELECT count(*) FROM recipes ${searchQuery}) AS total`
+        }
+
+        let query = `SELECT recipes.*, ${totalQuery}, chefs.name AS chef_name FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+        ${searchQuery}
+        LIMIT $1 OFFSET $2`
+        db.query(query, [params.limit, params.offset], (err, results)=>{
             if(err) throw `Database error ${err}`
             callback(results.rows)
         })
     },
-    chefFilter(search, callback){
-        let query = `SELECT chefs.*, count(recipes) AS recipes_total FROM chefs 
-        LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
-        WHERE chefs.name ILIKE '%${search}%'
-        GROUP BY chefs.id`
+    chefFilter(params, callback){
+        let searchQuery = ``,
+        totalQuery = `(SELECT count(*) FROM chefs) AS total`
 
-        db.query(query, (err, results)=>{
+        if(params.search){
+        searchQuery = `WHERE chefs.name ILIKE '%${params.search}%'` 
+        totalQuery = `(SELECT count(*) FROM chefs ${searchQuery}) AS total`
+        }
+
+        let query = `SELECT chefs.*, ${totalQuery}, count(recipes) AS recipes_total FROM chefs 
+        LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
+        ${searchQuery}
+        GROUP BY chefs.id
+        LIMIT $1 OFFSET $2`
+
+        db.query(query, [params.limit, params.offset], (err, results)=>{
             if(err) throw `Database error ${err}`
             callback(results.rows)
         })

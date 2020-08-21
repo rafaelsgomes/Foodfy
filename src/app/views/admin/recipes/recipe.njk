@@ -8,7 +8,7 @@
     <!-- Receitas -->
     <div class="recipes">
         <div class="admin-header">
-            <h1 style='margin-bottom: 30px' >Gerenciar Receitas</h1>
+            <h1 style='margin-bottom: 30px'>Gerenciar Receitas</h1>
             <a href="/admin/recipes/create">Cadastrar nova receita</a>
         </div>
         <div class="cards-admin">
@@ -24,6 +24,6 @@
             {% endfor %}
         </div>
     </div>
-
+ {% block pagination %}{% include "pagination.njk" %}{% endblock %}
 {% endblock %}
 
