@@ -15,20 +15,7 @@
 
 {% block content %}
     <!-- Chefs -->
-<div class="chefs">
-    <div class="cards-chefs">
-       {% for chef in chefs %}
-        <div class="card-chef">
-            <img src="{{chef.avatar_url}}" alt="Foto do Chef" class="chef-image">
-             <div class="chef-info">
-                <h2 class='chef-name'>{{chef.name}}</h2>
-                <h5 class="chef-recipes">{{chef.recipes_total}} receitas</h5>
-                <a class="view-chef" href="/chef/{{chef.id}}">Vizualizar</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+{% include "user/parts/chefs.njk" %} 
 
  {% block pagination %}{% include "pagination.njk" %}{% endblock %}
 

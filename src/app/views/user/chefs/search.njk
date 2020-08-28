@@ -5,17 +5,15 @@
 {% endblock %}
 
 {% block search %}
-<div class="search">
     <form action="/chefs/results">
         <input type="text" name="search" placeholder="Buscar um chef" value='{{search}}'>
         <button type="submit">Buscar</button>
     </form>
-</div>
 {% endblock %} 
 
 {% block content %}
     <!-- Chefs -->
-<div class="chefs">
+<div class="chefs content">
     <h1>Buscando por {{search}}</h1>
     <div class="cards-chefs">
        {% for chef in chefs %}

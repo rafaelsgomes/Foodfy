@@ -8,23 +8,26 @@
     {% block head %}
         <title>Foodfy</title>
     {% endblock %}
-    
+    <!-- Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>
 
 <body>
-    <div class="content">
         <header>       
-            <div class="navbar">
+        <div class="navbar content">
+            <div class="logo">
                 <a href="/"><img src="/assets/logo.png" alt="Foodfy Logo"></a>
-                <a href="/admin/recipes">Receitas</a>
-                <a style="margin: 0" href="/admin/chefs">Chefs</a>      
             </div>
-        </header>
+            <nav>
+                <a href="/admin/recipes">Receitas</a>
+                <a href="/admin/chefs">Chefs</a>
+            </nav>    
+        </div>
+    </header>
     
        {% block content %}{% endblock %}
-    </div>
     <script src="/JS/scripts.js"></script>
     {% block js %}{% endblock %}
 </body>

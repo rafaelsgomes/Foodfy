@@ -1,6 +1,19 @@
 <div class="recipe-item">
     <h2>Imagem da receita</h2>
-    <input type="url" name="image" value='{{recipe.image}}'>
+    <div id="image-upload-container">
+        <div id="images-upload">
+            <input type="file" name="images" id="images-input" multiple accept="image/*" onchange="ImagesUpload.filesInput(event)">
+            <i class="material-icons">add</i>
+        </div>
+    <div id="images-preview">
+        {% if images %}
+            {% for image in images %}
+            <img class="photo" src="{{image.src}}" alt="{{image.name}}">
+            <i class="material-icons">delete_outline</i>
+            {% endfor %}
+        {% endif %}
+    </div>
+    </div>
 </div>
 <div class="recipe-item">
     <h2>Nome da receita</h2>
@@ -30,7 +43,7 @@
             </div>
         {% endif %}
     </div>
-    <button type='button' class="add-ingredient">Adicionar Ingrediente</button>
+    <button type='button' class="add-ingredient" onclick="AddInputs.buttonAdd(event)">Adicionar Ingrediente</button>
 </div>
 <div class="recipe-item">
     <h2>Modo de Preparo</h2>
@@ -47,7 +60,7 @@
             </div>
         {% endif %}
     </div>
-    <button type='button' class='add-step'>Adicionar Novo Passo</button>
+    <button type='button' class='add-step' onclick="AddInputs.buttonAdd(event)">Adicionar Novo Passo</button>
 </div>
 
 <div class="recipe-item">

@@ -1,12 +1,12 @@
 {% extends "layout-admin.njk" %}
 
 {% block content %}
-    <div class="recipe">
+    <div class="recipe content">
         <div class='admin-header'>
              <h2>Criando Receita</h2>
              <button form='form-create' type="submit">Salvar Receita</button>
         </div>
-        <form id='form-create' action="/admin/recipes" method="POST">
+        <form id='form-create' action="/admin/recipes" method="POST" enctype="miltipart/form-data">
             {%include 'admin/recipes/form.njk'%}
         </form>
     </div>

@@ -9,13 +9,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="recipe">
+    <div class="recipe content">
                 <img src="{{recipe.image}}" class="card-image" alt="Foto do prato">
                 <h2 class='recipe-title'>{{recipe.title}}</h2>
                     <h5 class="recipe-author">por {{recipe.chef_name}}</h5>
                 <div class="recipe-details">
                     <div class="recipe-ingredients">
-                        <div class="details-header">
+                        <div class="details-header" onclick="ShowOrHide.targetEvent(event)">
                             <h2>Ingredientes</h2><span>Esconder</span>
                         </div>
                         
@@ -26,7 +26,7 @@
                         </ul>              
                     </div>
                     <div class="recipe-preparation hide">
-                        <div class="details-header">
+                        <div class="details-header" onclick="ShowOrHide.targetEvent(event)">
                             <h2>Modo de preparo</h2><span>Mostrar</span>
                         </div>
                         
@@ -37,7 +37,7 @@
                         </ul>              
                     </div>
                     <div class="recipe-information">
-                        <div class="details-header">
+                        <div class="details-header" onclick="ShowOrHide.targetEvent(event)">
                             <h2>Informações adicionais</h2><span>Esconder</span>
                         </div>
                         <p>{{recipe.information}}</p>             

@@ -6,7 +6,7 @@
 
 {% block content %}
     <!-- Receitas -->
-    <div class="recipes">
+    <div class="recipes content">
         <div class="admin-header">
             <h1 style='margin-bottom: 30px'>Gerenciar Receitas</h1>
             <a href="/admin/recipes/create">Cadastrar nova receita</a>
@@ -17,7 +17,7 @@
                     <img src="{{recipe.image}}" alt="Foto do prato" class="card-admin-image">
                     <div class="recipe-info">
                         <h2 class='recipe-title'>{{recipe.title}}</h2>
-                        <h5 class="recipe-author">{{recipe.chef_name}}</h5>
+                        <h5 class="recipe-author">por {{recipe.chef_name}}</h5>
                         <a class="view-recipe" href="/admin/recipe/{{recipe.id}}">Vizualizar</a>
                     </div>
                 </div>

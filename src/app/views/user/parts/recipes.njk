@@ -1,0 +1,14 @@
+<div class="recipes content">
+        <h1>Nossas receitas</h1>
+        <div class="cards">
+        {% for recipe in recipes %}
+            <div class="card" data-id="{{recipe.id}}">
+                <img src="{{recipe.image}}" alt="Foto do prato" class="card-image">
+                <div class="recipe-info">
+                    <h2 class='recipe-title'>{{recipe.title}}</h2>
+                    <h5 class="recipe-author">por {{recipe.chef_name}}</h5> 
+                </div>
+            </div>
+        {% endfor %} 
+        </div>
+    </div> 
