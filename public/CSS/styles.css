@@ -218,13 +218,6 @@ footer{
     line-height: 28px;
 }
 
-.recipe img{
-    border-radius: 16px;
-    height: 280px;
-    width: 100%;
-    margin-bottom: 50px;
-}
-
 .recipe h2, .chef h2{
     font-weight: 700;
     font-size: 24px;
@@ -269,6 +262,37 @@ footer{
 .recipe-ingredients.hide ul, .recipe-preparation.hide ul, .recipe-information.hide p{
     opacity: 0;
     display: none;
+}
+
+/* RECIPE DETAILS - IMAGE GALLERY */
+.image-gallery{
+    display: grid;
+    grid-template-rows: auto 50px;
+    margin-bottom: 50px;
+}
+
+.image-gallery .highlight img{
+    border-radius: 16px;
+    height: 280px;
+    width: 100%;
+}
+
+.image-gallery .gallery-preview{
+    justify-self: end;
+}
+
+.image-gallery .gallery-preview img{
+    height: 100%;
+    width: 50px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    opacity: 0.5;
+    transition: 400ms;
+    object-fit: cover;
+}
+
+.image-gallery .gallery-preview img.active, .image-gallery .gallery-preview img:hover{
+    opacity: 1;
 }
 
 /* CHEFS */

@@ -8,9 +8,12 @@
     <div id="images-preview">
         {% if images %}
             {% for image in images %}
-            <img class="photo" src="{{image.src}}" alt="{{image.name}}">
-            <i class="material-icons">delete_outline</i>
+            <div class="image" id="{{image.id}}">
+                <img src="{{image.src}}" alt="{{image.name}}">
+                <i class="material-icons" onclick="ImagesUpload.removeOldImages(event)">delete_outline</i>
+            </div>
             {% endfor %}
+            <input type="hidden" name="removed_images">
         {% endif %}
     </div>
     </div>

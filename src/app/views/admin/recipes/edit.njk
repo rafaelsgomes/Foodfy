@@ -9,7 +9,7 @@
                 <button form='form-edit' type="submit">Salvar Receita</button>
              </div>
         </div>
-        <form id='form-edit' action="/admin/recipe?_method=PUT" method="post" multiple accept="image/*" enctype="miltipart/form-data">
+        <form id='form-edit' action="/admin/recipe?_method=PUT" method="post" multiple accept="image/*" enctype="multipart/form-data">
             {%include 'admin/recipes/form.njk'%}
             <input type="hidden" name="id" value='{{recipe.id}}'>
         </form>

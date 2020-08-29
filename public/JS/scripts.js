@@ -183,7 +183,7 @@ if(formDelete){
 const ImagesUpload = {
     preview: document.querySelector('#images-preview'),
     limit: 5,
-    input: '',
+    input: "",
     files: [],
     filesInput(event){
         const {files: fileList} = event.target
@@ -263,5 +263,27 @@ const ImagesUpload = {
         ImagesUpload.input.files = ImagesUpload.allFiles()
 
         imageDiv.remove()
+    },
+    removeOldImages(event){
+        const imageDiv = event.target.parentNode
+        if(imageDiv.id){
+            const removed = document.querySelector('input[name="removed_images"]')
+            if(removed){
+                removed.value += `${imageDiv.id},`
+            }
+        }
+        imageDiv.remove()
+    }
+}
+
+const ImageGallery = {
+    highlight: document.querySelector(".image-gallery .highlight > img"),
+    previews: document.querySelectorAll(".gallery-preview img"),
+    setImage(event){
+        const {target} = event
+
+        ImageGallery.previews.forEach(preview => preview.classList.remove('active'))
+        target.classList.add('active')
+        ImageGallery.highlight.src = target.src
     }
 }
