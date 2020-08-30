@@ -592,7 +592,7 @@ footer{
     margin-bottom: 30px;
 }
 
-/* IMAGE UPLOADA CONTAINER */
+/* IMAGE UPLOAD CONTAINER */
 #image-upload-container{
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -620,7 +620,7 @@ form .recipe-item #images-upload i{
     justify-content: center;
 }
 
-form .recipe-item #images-input{
+form .recipe-item #images-input, .chef-item #images-input{
     position: absolute;
     margin: 0;
     top: 0;
@@ -630,6 +630,32 @@ form .recipe-item #images-input{
     height: 100%;
     opacity: 0;
     cursor: pointer;
+}
+
+.chef-item #image-upload-container{
+    height: 40px;
+}
+
+.chef-item .old-image{
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.chef-item #images-upload{
+    height: 100%;
+    margin-top: 10px;
+}
+
+.chef-item #images-upload p{
+    background-color: #6558C3;
+    color: white;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    
 }
 
 /* UPLOAD PREVIEW */

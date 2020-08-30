@@ -1,7 +1,7 @@
 const db = require('../../config/db')
 
 module.exports = {
-    recipeFilter(params, callback){
+    recipeFilter(params){
         let searchQuery = ``,
             totalQuery = `(SELECT count(*) FROM recipes) AS total`
 
@@ -14,10 +14,7 @@ module.exports = {
         LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
         ${searchQuery}
         LIMIT $1 OFFSET $2`
-        db.query(query, [params.limit, params.offset], (err, results)=>{
-            if(err) throw `Database error ${err}`
-            callback(results.rows)
-        })
+        return db.query(query, [params.limit, params.offset])
     },
     chefFilter(params, callback){
         let searchQuery = ``,
@@ -34,9 +31,6 @@ module.exports = {
         GROUP BY chefs.id
         LIMIT $1 OFFSET $2`
 
-        db.query(query, [params.limit, params.offset], (err, results)=>{
-            if(err) throw `Database error ${err}`
-            callback(results.rows)
-        })
+        return db.query(query, [params.limit, params.offset])
     },
 }

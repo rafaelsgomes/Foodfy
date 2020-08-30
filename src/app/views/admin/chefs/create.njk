@@ -6,7 +6,7 @@
              <h2>Criando Chef</h2>
              <button form='form-create' type="submit">Salvar Chef</button>
         </div>
-        <form id='form-create' action="/admin/chefs" method="POST">
+        <form id='form-create' action="/admin/chefs" method="POST" enctype="multipart/form-data">
             {%include 'admin/chefs/form.njk'%}
         </form>
     </div>

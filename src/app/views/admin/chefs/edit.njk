@@ -9,7 +9,7 @@
                 <button form='form-edit' type="submit">Salvar Chef</button>
              </div>
         </div>
-        <form id='form-edit' action="/admin/chef?_method=PUT" method="post">
+        <form id='form-edit' action="/admin/chef?_method=PUT" method="post" enctype="multipart/form-data">
             {%include 'admin/chefs/form.njk'%}
             <input type="hidden" name="id" value='{{chef.id}}'>
         </form>

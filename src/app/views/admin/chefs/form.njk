@@ -4,5 +4,13 @@
 </div>
 <div class="chef-item">
     <h2>Avatar</h2>
-    <input type="url" name="avatar_url" value='{{chef.avatar_url}}'>
+    {% if avatar %} 
+            <input type="text" disabled class="old-image" id="{{avatar[0].id}}" value="{{avatar[0].src}}">
+        {% endif %}
+    <div id="image-upload-container">
+        <div id="images-upload">
+            <input type="file" name="images" id="images-input" multiple accept="image/*" onchange="ImagesUpload.filesInput(event)">
+            <p>Enviar Avatar</p>
+        </div>
+    </div>
 </div>

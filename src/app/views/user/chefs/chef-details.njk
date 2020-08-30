@@ -12,7 +12,7 @@
 {% block content %}
     <div class="chef content">
         <div class="chef-info">
-            <img src="{{chef.avatar_url}}" alt="Foto do prato" class="avatar" style='background:  no-repeat center center / cover'>
+            <img src="{{avatar[0].src}}" alt="Foto do Chef" class="avatar" style='background:  no-repeat center center / cover'>
             <h2 class='chef-name'>{{chef.name}}</h2>
             <h5 class="chef-recipes-total">{{chef.recipes_total}} receitas</h5>
         </div>

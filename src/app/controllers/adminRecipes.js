@@ -24,7 +24,7 @@ module.exports = {
         const recipe = results.rows[0]
 
         results = await Recipe.files(recipe.id)
-        images = results.rows.map(image => ({
+        let images = results.rows.map(image => ({
             ...image,
             src: `${req.protocol}://${req.headers.host}${image.path.replace("public", "")}`
         }))

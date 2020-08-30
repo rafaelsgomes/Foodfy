@@ -2,73 +2,51 @@ const db = require('../../config/db')
 const {date} = require('../../lib/utils')
 
 module.exports = {
-    all(params, callback){
-        db.query(`SELECT chefs.*, (SELECT count(*) FROM chefs) AS total, count(recipes) AS recipes_total FROM chefs 
+    all(params){
+        return db.query(`SELECT chefs.*, (SELECT count(*) FROM chefs) AS total, count(recipes) AS recipes_total FROM chefs 
         LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
         GROUP BY chefs.id
-        LIMIT $1 OFFSET $2`, [params.limit, params.offset], (err, results)=>{
-            if(err) throw `Database error ${err}`
-
-            callback(results.rows)
-        })
+        LIMIT $1 OFFSET $2`, [params.limit, params.offset])
     },
-    show(id, callback){
-        db.query(`SELECT chefs.*, count(recipes) AS recipes_total FROM chefs 
+    show(id){
+        return db.query(`SELECT chefs.*, count(recipes) AS recipes_total FROM chefs 
         LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
         WHERE chefs.id = $1
-        GROUP BY chefs.id`, [id], (err, results)=>{
-            if(err) throw `Database error ${err}`
-            
-            callback(results.rows[0])
-        })
+        GROUP BY chefs.id`, [id])
     },
-    showRecipes(id, callback){
-        db.query(`SELECT recipes.* FROM recipes WHERE recipes.chef_id = $1`, [id], (err, results)=>{
-            if(err) throw `Database error ${err}`
-            
-            callback(results.rows)
-        })
+    showRecipes(id){
+        return db.query(`SELECT recipes.* FROM recipes WHERE recipes.chef_id = $1`, [id])
     },
-    create(data, callback){
+    create(data, fileId){
         const query = `INSERT INTO chefs (
             name,
-            avatar_url,
-            created_at
-        ) VALUES ($1, $2, $3) RETURNING ID `
+            created_at,
+            updated_at,
+            file_id
+        ) VALUES ($1, $2, $3, $4) RETURNING ID `
         const values = [
             data.name,
-            data.avatar_url,
-            date(Date.now()).iso 
+            date(Date.now()).iso,
+            date(Date.now()).iso,
+            fileId
         ]
-        db.query(query, values, (err, results)=>{
-            if(err) throw `Database error ${err}`
-
-            callback(results.rows[0])
-        })
+        return db.query(query, values)
     },
-    update(data, callback){
+    update(data, fileId){
         const query = `UPDATE chefs SET 
         name=($1),
-        avatar_url=($2)
+        file_id=($2)
         WHERE id = $3
         `
         const values = [
             data.name,
-            data.avatar_url,
+            fileId,
             data.id
         ]
-        db.query(query, values, (err, results)=>{
-            if(err) throw `Database error ${err}`
-
-            callback()
-        })
+        return db.query(query, values)
     },
-    delete(id, callback){
-        db.query(`DELETE FROM chefs WHERE id = $1`, [id], (err, results)=>{
-            if(err) throw `Database error ${err}`
-    
-            callback()
-        })
+    delete(id){
+        return db.query(`DELETE FROM chefs WHERE id = $1`, [id])
     },
     
 }
