@@ -15,9 +15,22 @@ module.exports = {
 
         if(!recipes) return res.send('Product Not Found!')
 
+        async function getImage(recipeId){
+            let results = await Recipe.files(recipeId)
+            const images = results.rows.map(image => `${req.protocol}://${req.headers.host}${image.path.replace("public", "")}` )
+            return images[0]
+        }
+
+        const imagesPromise = recipes.map( async recipe => {
+            recipe.image = await getImage(recipe.id)
+            return recipe
+        }).filter((recipe, index)=> index > 5 ? false : true)
+        
+        const lastAdded = await Promise.all(imagesPromise)
+
         const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
         
-        return res.render('user/index', {recipes, pagination})
+        return res.render('user/index', {recipes: lastAdded, pagination})
     },
     // About page
     about(req, res){
@@ -34,11 +47,24 @@ module.exports = {
         let results = await Recipe.all(params)
         const recipes = results.rows
 
-        if(!recipes) return res.send('Product Not Found!')
+        if(!recipes) return res.send('Recipe Not Found!')
+
+        async function getImage(recipeId){
+            let results = await Recipe.files(recipeId)
+            const images = results.rows.map(image => `${req.protocol}://${req.headers.host}${image.path.replace("public", "")}` )
+            return images[0]
+        }
+
+        const imagesPromise = recipes.map( async recipe => {
+            recipe.image = await getImage(recipe.id)
+            return recipe
+        })
+        
+        const lastAdded = await Promise.all(imagesPromise)
 
         const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
         
-        return res.render('user/recipes/recipes', {recipes, pagination})
+        return res.render('user/recipes/recipes', {recipes: lastAdded, pagination})
     },
     async details(req, res){
         const {id} = req.params  

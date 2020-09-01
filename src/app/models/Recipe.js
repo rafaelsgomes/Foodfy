@@ -5,6 +5,7 @@ module.exports = {
     all(params){ 
         return db.query(`SELECT recipes.*, (SELECT count(*) FROM recipes) AS total, chefs.name AS chef_name FROM recipes
         LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+        ORDER BY updated_at DESC
         LIMIT $1 OFFSET $2`, [params.limit, params.offset])
         
     },

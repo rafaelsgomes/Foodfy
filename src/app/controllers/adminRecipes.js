@@ -12,11 +12,24 @@ module.exports = {
         let results = await Recipe.all(params)
         const recipes = results.rows
 
-        if(!recipes) return res.send('Product Not Found!')
+        if(!recipes) return res.send('Recipe Not Found!')
+
+        async function getImage(recipeId){
+            let results = await Recipe.files(recipeId)
+            const images = results.rows.map(image => `${req.protocol}://${req.headers.host}${image.path.replace("public", "")}` )
+            return images[0]
+        }
+
+        const imagesPromise = recipes.map( async recipe => {
+            recipe.image = await getImage(recipe.id)
+            return recipe
+        })
+        
+        const lastAdded = await Promise.all(imagesPromise)
 
         const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
         
-        return res.render('admin/recipes/recipe', {recipes, pagination})
+        return res.render('admin/recipes/recipe', {recipes: lastAdded, pagination})
     },
     async details(req, res){
         const {id} = req.params  
@@ -88,7 +101,7 @@ module.exports = {
             const lastIndex = removedImages.length - 1
             removedImages.splice(lastIndex, 1)
 
-            const removedPromise = removedImages.map(id => File.delete(id))
+            const removedPromise = removedImages.map(id => File.deleteFile(id))
             await Promise.all(removedPromise)
         }
 

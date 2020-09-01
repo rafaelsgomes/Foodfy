@@ -7,7 +7,11 @@
             <a href="/admin/chef/{{chef.id}}/edit">Editar Chef</a>
         </div>
         <div class="chef-info">
-            <img src="{{avatar[0].src}}" alt="Foto do Chef" class="avatar" style='background:  no-repeat center center / cover'>
+            {% if not avatar[0] %}
+                <img src="http://placehold.it/500x500?text=Chef Sem Avatar" alt="">
+            {% else %}
+                <img src="{{avatar[0].src}}" alt="Foto do Chef" class="avatar" style='background:  no-repeat center center / cover'>
+            {% endif %}
             <h2 class='chef-name'>{{chef.name}}</h2>
             <h5 class="chef-recipes-total">{{chef.recipes_total}} receitas</h5>
         </div>
@@ -17,7 +21,7 @@
         <div class="cards-chef-admin">
         {% for recipe in recipes %}
                 <div class="card-chef-admin">
-                <img src="{{recipe.image}}" alt="Foto do prato" class="card-image">
+                <img src="{{recipe.image if recipe.image else '//placehold.it/500x500?text=Receita Sem Foto'}}" alt="Foto do prato" class="card-image">
                 <div class="recipe-info">
                     <h2 class="recipe-title">{{recipe.title}}</h2>
                     <h5 class="recipe-author">por {{chef.name}}</h5>
