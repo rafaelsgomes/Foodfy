@@ -9,11 +9,11 @@
                 <button form='form-edit' type="submit">Salvar Chef</button>
              </div>
         </div>
-        <form id='form-edit' action="/admin/chef?_method=PUT" method="post" enctype="multipart/form-data">
+        <form id='form-edit' action="/admin/chefs?_method=PUT" method="post" enctype="multipart/form-data">
             {%include 'admin/chefs/form.njk'%}
             <input type="hidden" name="id" value='{{chef.id}}'>
         </form>
-        <form id='form-delete' action="/admin/chef?_method=DELETE" method="post">
+        <form id='form-delete' action="/admin/chefs?_method=DELETE" method="post">
             <input type="hidden" name="id" value='{{chef.id}}'>
         </form>
     </div>

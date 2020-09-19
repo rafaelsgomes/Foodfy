@@ -64,7 +64,7 @@ module.exports = {
         await Promise.all(imagesPromise)
 
 
-        return res.redirect(`/admin/recipe/${recipe}`)
+        return res.redirect(`/admin/recipes/${recipe}`)
     },
     async edit(req, res){
         const {id} = req.params  
@@ -107,7 +107,7 @@ module.exports = {
 
         await Recipe.update(req.body)
 
-        return res.redirect(`/admin/recipe/${req.body.id}`) 
+        return res.redirect(`/admin/recipes/${req.body.id}`) 
     },
     async delete(req, res){
         await Recipe.delete(req.body.id)

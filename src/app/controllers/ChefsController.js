@@ -30,7 +30,7 @@ module.exports = {
 
         const pagination = {total: Math.ceil(chefs[0].total / limit), page} 
         
-        return res.render('user/chefs/chefs', {chefs: lastAdded, pagination})
+        return res.render('home/chefs/chefs', {chefs: lastAdded, pagination})
     },
     async details(req, res){
         const {id} = req.params
@@ -59,7 +59,7 @@ module.exports = {
         
         const lastAdded = await Promise.all(imagesPromise)
 
-        return res.render('user/chefs/chef-details', {chef, recipes: lastAdded, avatar})
+        return res.render('home/chefs/chef-details', {chef, recipes: lastAdded, avatar})
 
     },
 }

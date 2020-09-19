@@ -30,11 +30,11 @@ module.exports = {
 
         const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
         
-        return res.render('user/index', {recipes: lastAdded, pagination})
+        return res.render('home/index', {recipes: lastAdded, pagination})
     },
     // About page
     about(req, res){
-        return res.render('user/about')
+        return res.render('home/about')
     },
     // List of all recipes
     async recipesList(req, res){
@@ -64,7 +64,7 @@ module.exports = {
 
         const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
         
-        return res.render('user/recipes/recipes', {recipes: lastAdded, pagination})
+        return res.render('home/recipes/recipes', {recipes: lastAdded, pagination})
     },
     async details(req, res){
         const {id} = req.params  
@@ -76,6 +76,6 @@ module.exports = {
             ...image,
             src: `${req.protocol}://${req.headers.host}${image.path.replace("public", "")}`
         }))
-        return res.render('user/recipes/recipe-details', {recipe, images}) 
+        return res.render('home/recipes/recipe-details', {recipe, images}) 
     }
 }

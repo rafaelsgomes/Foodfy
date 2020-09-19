@@ -81,7 +81,7 @@ module.exports = {
         results = await Chef.create(req.body, imageId)
         const chef = results.rows[0]
 
-        return res.redirect(`/admin/chef/${chef.id}`)
+        return res.redirect(`/admin/chefs/${chef.id}`)
         
     },
     async edit(req, res){
@@ -103,7 +103,7 @@ module.exports = {
 
         const imageId = results.rows[0].id
         await Chef.update(req.body, imageId)
-        return res.redirect(`/admin/chef/${req.body.id}`)
+        return res.redirect(`/admin/chefs/${req.body.id}`)
     },
     async delete(req, res){
         await Chef.delete(req.body.id)

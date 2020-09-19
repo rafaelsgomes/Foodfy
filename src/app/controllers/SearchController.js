@@ -30,7 +30,7 @@ module.exports = {
             const lastAdded = await Promise.all(imagesPromise)
 
             const pagination = {total: Math.ceil(recipes[0].total / limit), page} 
-            return res.render('user/recipes/search', {recipes: lastAdded, search, pagination})
+            return res.render('home/recipes/search', {recipes: lastAdded, search, pagination})
         }else{
             return res.redirect('/recipes')
         }
@@ -62,7 +62,7 @@ module.exports = {
             const lastAdded = await Promise.all(imagesPromise)
 
             const pagination = {total: Math.ceil(chefs[0].total / limit), page} 
-            return res.render('user/chefs/search', {chefs: lastAdded, search, pagination})
+            return res.render('home/chefs/search', {chefs: lastAdded, search, pagination})
         }else{
             return res.redirect('/chefs')
         }
