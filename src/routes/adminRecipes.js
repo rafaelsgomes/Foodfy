@@ -5,15 +5,15 @@ const routes = express.Router()
 const multer =  require('../app/middlewares/multer')
 
 // CONTROLLERS
-const adminRecipes = require('../app/controllers/AdminRecipesController')
+const AdminRecipesController = require('../app/controllers/AdminRecipesController')
 
 // ADMIN RECIPES
-routes.get('/', adminRecipes.recipesList)
-routes.get('/create', adminRecipes.create)
-routes.get('/:id', adminRecipes.details)
-routes.get('/:id/edit', adminRecipes.edit)
-routes.post('/', multer.array("images", 5), adminRecipes.post)
-routes.put('/', multer.array("images", 5), adminRecipes.put)
-routes.delete('/', adminRecipes.delete)
+routes.get('/', AdminRecipesController.recipesList)
+routes.get('/create', AdminRecipesController.create)
+routes.get('/:id', AdminRecipesController.details)
+routes.get('/:id/edit', AdminRecipesController.edit)
+routes.post('/', multer.array("images", 5), AdminRecipesController.post)
+routes.put('/', multer.array("images", 5), AdminRecipesController.put)
+routes.delete('/', AdminRecipesController.delete)
 
 module.exports = routes
