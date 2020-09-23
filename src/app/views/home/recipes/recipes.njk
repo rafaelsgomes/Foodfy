@@ -10,9 +10,12 @@
 
 {% block content %}
     <!-- Receitas -->
-{% include "home/parts/recipes.njk" %} 
+<div class="recipes content">
+    <h1>Nossas receitas</h1>
+    {% include "parts/recipes.njk" %} 
+</div> 
 
-{% block pagination %}{% include "pagination.njk" %}{% endblock %}
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}
 {% block extend %}

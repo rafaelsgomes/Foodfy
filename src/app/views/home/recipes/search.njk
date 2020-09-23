@@ -10,23 +10,12 @@
 
 {% block content %}
     <!-- Receitas -->
-    <div class="recipes content">
-        <h1>Buscando por {{search}}</h1>
-        <div class="cards">
-       {% for recipe in recipes %}
-        <div class="card" data-id="{{recipe.id}}">
-            <img src="{{recipe.image if recipe.image else '//placehold.it/500x500?text=Receita Sem Foto'}}" alt="Foto do prato" class="card-image">
-            <div class="recipe-info">
-                <h2 class='recipe-title'>{{recipe.title}}</h2>
-                <h5 class="recipe-author">por {{recipe.chef_name}}</h5> 
-            </div>
-        </div>
-    {% endfor %} 
-        </div>
-    </div>
+<div class="recipes content">
+    <h1>Buscando por {{search}}</h1>
+    {% include "parts/recipes.njk" %} 
 </div>
 
- {% block pagination %}{% include "pagination.njk" %}{% endblock %}
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}
 {% block extend %}

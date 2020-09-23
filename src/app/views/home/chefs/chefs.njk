@@ -15,8 +15,11 @@
 
 {% block content %}
     <!-- Chefs -->
-{% include "home/parts/chefs.njk" %} 
+<div class="chefs content">
+    <h1>Nossos Chefs</h1>
+    {% include "parts/chefs.njk" %} 
+</div>
 
- {% block pagination %}{% include "pagination.njk" %}{% endblock %}
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}

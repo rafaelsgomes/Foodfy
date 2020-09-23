@@ -1,4 +1,4 @@
-{% extends "layout-admin.njk" %}
+{% extends "admin/layout-admin.njk" %}
 
 {% block head %}
     <title>Foodfy - Chefs</title>
@@ -25,6 +25,6 @@
     </div>
 </div>
 
-{% block pagination %}{% include "pagination.njk" %}{% endblock %}
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}

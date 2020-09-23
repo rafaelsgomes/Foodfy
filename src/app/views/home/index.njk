@@ -15,9 +15,11 @@
     </div>
 
     <!-- Mais Acessadas -->
-    {% include "home/parts/recipes.njk" %} 
-
-{% block pagination %}{% include "pagination.njk" %}{% endblock %}
+    <div class="recipes content">
+        <h1>Nossas receitas</h1>
+        {% include "parts/recipes.njk" %} 
+    </div> 
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}
 {% block extend %}

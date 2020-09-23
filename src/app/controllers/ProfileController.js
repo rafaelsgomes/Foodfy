@@ -15,13 +15,13 @@ module.exports = {
         return res.send('ok')
     },
     forgotForm(req, res){
-        return res.send('ok')
+        return res.render('admin/profile/forgotForm')
     },
     forgotPassword(req, res){
         return res.send('ok')
     },
     resetForm(req, res){
-        return res.send('ok')
+        return res.render('admin/profile/resetForm')
     },
     resetPassword(req, res){
         return res.send('ok')

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="session content">
-        <h1>Iniciar Sessão</h1>
+        <h1>Nova Senha</h1>
         <form id="login" action="/admin/profile/login" method="POST">
             <div class="item">
                 <h2>Email</h2>
@@ -10,12 +10,15 @@
             </div>
             <div class="item">
                 <h2>Senha</h2>
-                <input type="password" name="password" placeholder="Digite sua senha">
+                <input type="password" name="password" placeholder="Digite sua nova senha">
+            </div>
+             <div class="item">
+                <h2>Senha</h2>
+                <input type="password" name="passwordRepeat" placeholder="Repita a nova senha">
             </div>
         </form>
         <div>
-            <a href="/admin/profile/forgot-password">Perdeu a senha?</a>
-            <button form="login" type="submit" class="btn">Acessar</button>   
+            <button form="login" type="submit" class="btn">Nova Senha</button>   
         </div>
     </div>
 {% endblock %}

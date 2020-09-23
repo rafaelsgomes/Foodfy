@@ -1,0 +1,77 @@
+header.session-header{
+    margin-bottom: 150px;
+}
+.session-header .logo{
+    margin: 36px auto;
+}
+
+.session-header .logo a{
+    font-family: Cochin;
+    font-size: 28px;
+    color: #111;
+    letter-spacing: 2px;
+}
+
+/* FORM */
+.session{
+    margin-bottom: 50px;
+}
+.session h1{
+    font-size: 28px;
+    font-weight: bold;
+    color: #111;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.session form{
+    width: 500px;
+}
+
+.session form .item{
+    margin-bottom: 36px;
+}
+
+.session form .item input{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.session form .item h2{
+    font-size: 16px;
+    font-weight: bold;
+    color: #111;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.session form + div{
+    display: flex;
+    align-items: center;
+}
+
+.session form + div a{
+    font-weight: bold;
+    font-size: 16px;
+    color: #969696;
+}
+
+.session form + div .btn{
+    padding: 8px 36px;
+    background: #6558C3;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.session form input::placeholder{
+    font-size: 16px;
+    color: #999;
+}

@@ -1,4 +1,4 @@
-{% extends "layout-admin.njk" %}
+{% extends "admin/layout-admin.njk" %}
 
 {% block head %}
     <title>Foodfy - Gerenciar Receitas</title>
@@ -24,6 +24,6 @@
             {% endfor %}
         </div>
     </div>
- {% block pagination %}{% include "pagination.njk" %}{% endblock %}
+ {% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 {% endblock %}
 

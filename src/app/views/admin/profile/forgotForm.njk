@@ -1,0 +1,16 @@
+{% extends "admin/profile/session-layout.njk" %}
+
+{% block content %}
+    <div class="session content">
+        <h1>Esqueceu a Senha?</h1>
+        <form id="login" action="/admin/profile/login" method="POST">
+            <div class="item">
+                <h2>Email</h2>
+                <input type="text" name="email" value='{{profile.email}}' placeholder="Digite seu email para recuperar sua senha">
+            </div>
+        </form>
+        <div>
+            <button form="login" type="submit" class="btn" style="margin-left: auto">Recuperar</button>   
+        </div>
+    </div>
+{% endblock %}

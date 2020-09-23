@@ -15,20 +15,9 @@
     <!-- Chefs -->
 <div class="chefs content">
     <h1>Buscando por {{search}}</h1>
-    <div class="cards-chefs">
-       {% for chef in chefs %}
-        <div class="card-chef">
-            <img src="{{chef.avatar if chef.avatar else '//placehold.it/500x500?text=Sem Avatar'}}" alt="Foto do Chef" class="chef-image">
-             <div class="chef-info">
-                <h2 class='chef-name'>{{chef.name}}</h2>
-                <h5 class="chef-recipes">{{chef.recipes_total}} receitas</h5>
-                <a class="view-chef" href="/admin/chef/{{chef.id}}">Vizualizar</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% include "parts/chefs.njk" %} 
 </div>
 
- {% block pagination %}{% include "pagination.njk" %}{% endblock %}
+{% block pagination %}{% include "parts/pagination.njk" %}{% endblock %}
 
 {% endblock %}

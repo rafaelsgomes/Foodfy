@@ -1,0 +1,234 @@
+
+/* ADMIN - RECIPES */
+.cards-admin{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-admin{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+}
+
+.cards-admin, .card-admin{
+    gap: 20px;
+}
+
+.card-admin-image{
+    width: 172px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.view-recipe, .view-chef{
+    color: #6558C3;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.admin-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.admin-header a{
+    background-color: #6558C3;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-bottom: auto;
+}
+
+.admin-header button[type='submit']{
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #DC4747;
+}
+
+.admin-header button[type='submit']:last-child{
+    background: #6558C3;
+}
+
+/* ADMIN - RECIPES CHEFS */
+.cards-chef-admin, .cards-chef{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.cards-chef-admin .card-chef-admin, .cards-chef .card-chef{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+    gap: 20px;
+}
+
+.cards-chef-admin img, .cards-chef img{
+    width: 100%;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.cards-chef-admin .recipe-info, .cards-chef .recipe-info{
+    margin: auto 0;
+}
+
+/* ADMIN- FORM*/
+.recipe-item, .chef-item{
+    text-align: initial;
+}
+
+.recipe-item h2, .chef-item h2{
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+}
+
+.recipe-item input, .recipe-item textarea, .recipe-item select, .chef-item input{
+    display: inline-block;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+    margin: 16px 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    color: #333;
+}
+
+.recipe-item textarea{
+    height: 256px;
+    vertical-align: top;
+    resize: none;
+}
+
+.recipe-item button[type='button']{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: #6558C3;
+    margin-bottom: 30px;
+}
+
+/* IMAGE UPLOAD CONTAINER */
+#image-upload-container{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 8px;
+}
+
+/* IMAGES UPLOAD INPUT */
+#images-upload{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+form .recipe-item #images-upload i{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 54px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form .recipe-item #images-input, .chef-item #images-input{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.chef-item #image-upload-container{
+    height: 40px;
+}
+
+.chef-item .old-image{
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.chef-item #images-upload{
+    height: 100%;
+    margin-top: 10px;
+}
+
+.chef-item #images-upload p{
+    background-color: #6558C3;
+    color: white;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    
+}
+
+/* UPLOAD PREVIEW */
+form .recipe-item #images-preview{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+form .recipe-item #images-preview .image{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    
+}
+
+form .recipe-item #images-preview .image i{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #FF0000;
+    background-color: rgba(255, 255, 255, .75);
+    width: 100%;
+    height: 100%;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+form .recipe-item #images-preview .image i:hover{
+    opacity: 1;
+}
+
+form .recipe-item #images-preview .image img{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    object-fit: cover;
+}
