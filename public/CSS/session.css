@@ -75,3 +75,9 @@ header.session-header{
     font-size: 16px;
     color: #999;
 }
+
+/* ERROR */
+
+.session form input.error{
+    border: 1px solid red;
+}

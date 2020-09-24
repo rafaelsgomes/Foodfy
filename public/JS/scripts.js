@@ -1,4 +1,4 @@
-// path
+// PATH
 const path = location.pathname
 const menu = document.querySelectorAll('header .navbar a')
 
@@ -7,7 +7,8 @@ for(item of menu){
         item.classList.add('active')
     }
 }
-//Show or Hide recipe informations
+
+//SHOW OR HIDE INFORMATIONS
 const ShowOrHide = {
     showOrHide(event){
         event.parentNode.classList.toggle('hide')
@@ -22,7 +23,8 @@ const ShowOrHide = {
         ShowOrHide.showOrHide(target)
     }
 }
-// Pagination
+
+// PAGINATION
 const pagination = document.querySelector('.pagination')
 function paginate(pagination){
     const totalPage = pagination.dataset.total
@@ -138,7 +140,6 @@ function paginate(pagination){
         buttons.update() 
     }
 }
-
 if(pagination){
     paginate(pagination)
     const paginationNumbers = document.querySelectorAll('.pages-list div')
@@ -147,7 +148,7 @@ if(pagination){
     }
 }
 
-// Add Inputs
+// ADD NEW INPUTS
 const AddInputs = {
     addInput(field, container){
         const fieldInput = field
@@ -171,7 +172,8 @@ const AddInputs = {
         }
     }
 }
-// Delete Confirmation
+
+// DELETE CONFIRMATION
 const formDelete = document.querySelector('#form-delete')
 if(formDelete){  
     document.querySelector('#form-delete').addEventListener('submit', (event)=>{
@@ -180,6 +182,7 @@ if(formDelete){
     })
 }
 
+// IMAGE UPLOAD
 const ImagesUpload = {
     preview: document.querySelector('#images-preview'),
     limit: 5,
@@ -275,7 +278,6 @@ const ImagesUpload = {
         imageDiv.remove()
     }
 }
-
 const ImageGallery = {
     highlight: document.querySelector(".image-gallery .highlight > img"),
     previews: document.querySelectorAll(".gallery-preview img"),
@@ -285,5 +287,24 @@ const ImageGallery = {
         ImageGallery.previews.forEach(preview => preview.classList.remove('active'))
         target.classList.add('active')
         ImageGallery.highlight.src = target.src
+    }
+}
+
+// EMAIL VALIDATOR
+
+const EmailValidator = {
+    cleanErrors(input){
+        input.classList.remove('error')
+    },
+    isEmail(input){
+        const {value} = input
+        EmailValidator.cleanErrors(input)
+
+        const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+        if(!value.match(mailFormat)){
+            input.classList.add('error')
+            
+        }
     }
 }
