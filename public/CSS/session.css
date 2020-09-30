@@ -79,5 +79,5 @@ header.session-header{
 /* ERROR */
 
 .session form input.error{
-    border: 1px solid red;
+    border: 1px solid #FF3131;
 }

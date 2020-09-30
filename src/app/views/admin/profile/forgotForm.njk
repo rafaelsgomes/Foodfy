@@ -6,7 +6,7 @@
         <form id="login" action="/admin/profile/login" method="POST">
             <div class="item">
                 <h2>Email</h2>
-                <input type="text" name="email" value='{{profile.email}}' placeholder="Digite seu email para recuperar sua senha" onblur="EmailValidator.isEmail(this)">
+                <input type="text" name="email" value='{{user.email}}' placeholder="Digite seu email para recuperar sua senha" onblur="EmailValidator.isEmail(this)">
             </div>
         </form>
         <div>

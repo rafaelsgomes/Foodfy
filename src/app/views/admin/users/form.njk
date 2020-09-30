@@ -1,0 +1,12 @@
+<div class="item">
+    <h2>Nome</h2>
+    <input type="text" name="name" value='{{user.name}}' placeholder="Digite seu Nome">
+</div>
+<div class="item">
+    <h2>Email</h2>
+    <input type="text" name="email" value='{{user.email}}' placeholder="Digite seu email" onblur="EmailValidator.isEmail(this)">
+</div>
+<div class="item is_admin">
+    <input type="checkbox" name="is_admin" id="is_admin">
+    <label for="is_admin">Administrador</label>
+</div>

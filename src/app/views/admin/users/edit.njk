@@ -1,0 +1,21 @@
+{% extends "admin/layout-admin.njk" %}
+
+{% block content %}
+    <div class="user content">
+        <div class='admin-header'>
+             <h2>Criar Usuário</h2>
+             <div>
+                  <button form='form-delete' type="submit">Deletar</button>
+                 <button form='form-edit' type="submit">Salvar</button>
+                <a href="admin/users">Cancelar</a>
+             </div>
+        </div>
+         <form id='form-edit' action="/admin/users?_method=PUT" method="post" enctype="multipart/form-data">
+            {%include 'admin/users/form.njk'%}
+            <input type="hidden" name="id" value='{{recipe.id}}'>
+        </form>
+        <form id='form-delete' action="/admin/users?_method=DELETE" method="post">
+            <input type="hidden" name="id" value='{{recipe.id}}'>
+        </form>
+    </div>
+{% endblock %}

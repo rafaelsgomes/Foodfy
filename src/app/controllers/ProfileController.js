@@ -1,6 +1,6 @@
 module.exports = {
     index(req, res){
-        return res.send("ok")
+        return res.render('admin/profile/user-details')
     },
     put(req, res){
         return res.send('editado')

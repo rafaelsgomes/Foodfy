@@ -1,0 +1,24 @@
+{% extends "admin/layout-admin.njk" %}
+
+{% block content %}
+    <div class="user content">
+    <div class="header">
+        <h1>Bem vindo {{user.email}}</h1>
+        <button form="edit" type="submit" class="btn">Salvar</button>   
+    </div>
+    <form id="edit" action="/admin/profile?_method=PUT" method="POST">
+        <div class="item">
+            <h2>Nome</h2>
+            <input type="text" name="name" placeholder="Digite seu Nome">
+        </div>
+        <div class="item">
+            <h2>Email</h2>
+            <input type="text" name="email" value='{{user.email}}' placeholder="Digite seu email" onblur="EmailValidator.isEmail(this)">
+        </div>
+        <div class="item">
+            <h2>Senha</h2>
+            <input type="password" name="password" placeholder="Digite sua senha">
+        </div>
+    </form>
+</div>
+{% endblock %}

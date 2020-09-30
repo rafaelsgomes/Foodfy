@@ -1,0 +1,16 @@
+{% extends "admin/layout-admin.njk" %}
+
+{% block content %}
+    <div class="user content">
+        <div class='admin-header'>
+             <h2>Criar Usuário</h2>
+             <div>
+                 <button form='form-create' type="submit">Salvar</button>
+                <a href="admin/users">Cancelar</a>
+             </div>
+        </div>
+        <form id='form-create' action="/admin/users" method="POST">
+            {%include 'admin/users/form.njk'%}
+        </form>
+    </div>
+{% endblock %}

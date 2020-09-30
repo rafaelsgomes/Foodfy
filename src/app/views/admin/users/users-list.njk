@@ -1,0 +1,30 @@
+{% extends "admin/layout-admin.njk" %}
+
+{% block head %}
+    <title>Foodfy - Usuários</title>
+{% endblock %}
+
+{% block content %}
+    <!-- Chefs -->
+<div class="user content">
+    <div class="admin-header">
+        <a href="/admin/users/create" style="margin-left: auto" >Novo</a>
+    </div>
+    <div class="cards-users">
+        {% for user in users %}
+        <div class="card-user">
+            <h2>{{user.name}}</h2>
+            <h4>{{user.email}}</h4>
+            <div>
+                <a href="admin/users/{{user.id}}/edit">Editar</a>
+                <form id='form-delete' action="/admin/users?_method=DELETE" method="post">
+                    <button type="submit">Deletar</button>
+                    <input type="hidden" name="id" value='{{recipe.id}}'>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

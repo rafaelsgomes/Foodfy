@@ -1,3 +1,24 @@
+header.admin-menu .navbar{
+    grid-template-columns: 150px 1fr 1fr 1fr;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+header.admin-menu .navbar form{
+   text-align: right;
+}
+
+header.admin-menu .navbar form button{
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+header.admin-menu .navbar form button:hover{
+    font-weight: bold;
+}
 
 /* ADMIN - RECIPES */
 .cards-admin{
@@ -231,4 +252,126 @@ form .recipe-item #images-preview .image img{
     border: 1px solid #ddd;
     border-radius: 4px;
     object-fit: cover;
+}
+
+/* USERS */
+.user{
+    width: 100%;
+}
+
+.user .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 68px;
+}
+
+.user .header h1{
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 24px;
+    color: #111;
+}
+
+.user .header .btn, .admin-header div button[type="submit"], .admin-header div a{
+    background-color: #7159C1;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.admin-header div a{
+    background-color: #8A8A8A;
+}
+
+.user form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px
+}
+
+.user form h2{
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.user form input{
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #111;
+}
+
+.user form input::placeholder{
+    color: #999;
+    font-size: 16px;
+}
+
+.user form .item.is_admin{
+    display: flex;
+    align-items: center;
+}
+
+.user form .item.is_admin input[type="checkbox"]{
+    width: auto;
+    margin-right: 8px;
+}
+
+.user form .item.is_admin label{
+    font-size: 16px;
+    font-weight: bold;
+    color: #111;
+}
+
+/* USERS LIST */
+.cards-users    {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 64px;
+}
+
+.card-user{
+    text-align: left;
+}
+
+.card-user div{
+    display: flex;
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+.card-user h2{
+    font-size: 18px;
+    color: #111;
+}
+
+.card-user h4{
+    font-size: 14px;
+    color: #777;
+    text-transform: lowercase;
+    margin-top: 4px;
+}
+
+.card-user div a{
+    color: #6558C3;
+    font-weight: bold;
+}
+
+.card-user div form button[type="submit"]{
+    margin-left: 16px;
+    background: none;
+    border: none;
+    color: #F55A5A;
+    font-weight: bold;
+    cursor: pointer;
 }
